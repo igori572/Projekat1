@@ -16,8 +16,8 @@
         <TekstOglasa>Auto u jako dobrom stanju. Garaziran. Registracija istice 02.2023 </TekstOglasa>
         <Oznaka>Automobil,BMW,120d</Oznaka>
         <E-Posta>
-            <kontakt1 vrsta="privatni">igor@contact.me</kontakt1>
-            <kontakt2 vrsta="sluzbeni">igorsluzbeni@contact.me</kontakt2>
+            <kontakt vrsta="privatni">igor@contact.me</kontakt>
+            <kontakt vrsta="sluzbeni">igorsluzbeni@contact.me</kontakt>
         </E-Posta>
     </Oglas>
 </Oglasi>
