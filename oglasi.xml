@@ -1,0 +1,23 @@
+<Oglasi>
+    <Oglas>
+        <Kategorija>
+            <Automobil>
+                <Proizvodjac>BMW</Proizvodjac>
+                <Model tip="hecbek">120d </Model>
+                <Godiste>2005</Godiste>
+                <Farba tip="metalik">Tamno siva</Farba>
+                <Zapremina jedinica="ccm">2000</Zapremina>
+                <Transmisija tip="manuelni">6</Transmisija>
+                <Gorivo tng="ne">Dizel</Gorivo>
+            </Automobil>
+        </Kategorija>
+        <DatumIsteka>25.05.2022</DatumIsteka>
+        <Cena valuta="din">500000</Cena>
+        <TekstOglasa>Auto u jako dobrom stanju. Garaziran. Registracija istice 02.2023 </TekstOglasa>
+        <Oznaka>Automobil,BMW,120d</Oznaka>
+        <E-Posta>
+            <kontakt1 vrsta="privatni">igor@contact.me</kontakt1>
+            <kontakt2 vrsta="sluzbeni">igorsluzbeni@contact.me</kontakt2>
+        </E-Posta>
+    </Oglas>
+</Oglasi>
