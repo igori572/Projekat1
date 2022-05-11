@@ -5,6 +5,9 @@
 <!ELEMENT dan(#PCDATA)>
 <!ELEMENT mesec(#PCDATA)>
 <!ELEMENT godina(#PCDATA)>
+<!ELEMENT Oglas(Kategorija,DatumIsteka,Cena,TekstOglasa,Oznaka,E-Posta)
+
+<!ELEMENT DatumIsteka (#PCDATA)>
 <!ELEMENT Cena (#PCDATA)>
 <!ELEMENT TekstOglasa (#PCDATA)>
 <!ELEMENT Oznaka (#PCDATA)>
@@ -13,4 +16,5 @@
 
 
 <!ATTLIST Cena valuta (eur|din|usd) "din" #REQUIRED>
+<!ATTLIST Cena valuta (eur|din) "din" #REQUIRED>
 <!ATTLIST E-Posta (privatni|sluzbeni) #REQUIRED>
