@@ -1,13 +1,25 @@
 <!ELEMENT Oglasi (Oglas+)>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 3522841308e9220cc420022c5afac59f58021b9c
 <!ELEMENT Oglas(Kategorija,DatumIsteka,Cena,TekstOglasa,Oznaka+,E-Posta)
 
 <!ELEMENT DatumIsteka (dan,mesec,godina)>
 <!ELEMENT dan(#PCDATA)>
 <!ELEMENT mesec(#PCDATA)>
 <!ELEMENT godina(#PCDATA)>
+<<<<<<< HEAD
 <!ELEMENT Oglas(Kategorija,DatumIsteka,Cena,TekstOglasa,Oznaka,E-Posta)
 
 <!ELEMENT DatumIsteka (#PCDATA)>
+=======
+=======
+<!ELEMENT Oglas(Kategorija,DatumIsteka,Cena,TekstOglasa,Oznaka,E-Posta)
+
+<!ELEMENT DatumIsteka (#PCDATA)>
+>>>>>>> ce103a5e200ecace17add5ec686a5f08487211ff
+>>>>>>> 3522841308e9220cc420022c5afac59f58021b9c
 <!ELEMENT Cena (#PCDATA)>
 <!ELEMENT TekstOglasa (#PCDATA)>
 <!ELEMENT Oznaka (#PCDATA)>
@@ -15,6 +27,14 @@
 <!ELEMENT kontakt(#PCDATA)>
 
 
+<<<<<<< HEAD
 <!ATTLIST Cena valuta (eur|din|usd) "din" #REQUIRED>
 <!ATTLIST Cena valuta (eur|din) "din" #REQUIRED>
+=======
+<<<<<<< HEAD
+<!ATTLIST Cena valuta (eur|din|usd) "din" #REQUIRED>
+=======
+<!ATTLIST Cena valuta (eur|din) "din" #REQUIRED>
+>>>>>>> ce103a5e200ecace17add5ec686a5f08487211ff
+>>>>>>> 3522841308e9220cc420022c5afac59f58021b9c
 <!ATTLIST E-Posta (privatni|sluzbeni) #REQUIRED>
