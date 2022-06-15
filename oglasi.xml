@@ -11,10 +11,10 @@
         <Cena valuta="din">500000</Cena>
         <TekstOglasa>Auto u jako dobrom stanju. Garaziran. Registracija istice 02.2023 </TekstOglasa>
         <Oznaka>Automobil</Oznaka>
-        <Oznaka>120d</Oznaka>
+        <Oznaka>S400</Oznaka>
         <E-Posta>
-            <kontakt vrsta="privatni">igor@contact.me</kontakt>
-            <kontakt vrsta="sluzbeni">igorsluzbeni@contact.me</kontakt>
+            <kontakt vrsta="privatni">igor@contact.com</kontakt>
+            <kontakt vrsta="sluzbeni">igorsluzbeni@contact.com</kontakt>
         </E-Posta>
     </Oglas>
 </Oglasi>
