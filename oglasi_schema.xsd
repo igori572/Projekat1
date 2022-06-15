@@ -4,14 +4,14 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="Oglas" type="Oglas" maxOccurs="unbounded"></xs:element>
-                
+
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
     <xs:complexType name="Oglas">
         <xs:sequence>
-
+            <xs:element name="Kategorija" type="Cat"></xs:element>
         
             
             <xs:element name="DatumIsteka">
@@ -25,6 +25,7 @@
                                 </xs:restriction>
                             </xs:simpleType>
                         </xs:element>
+
                         <xs:element name="mesec">
                             <xs:simpleType>
                                 <xs:restriction base="xs:integer">
@@ -33,6 +34,7 @@
                                 </xs:restriction>
                             </xs:simpleType>
                         </xs:element>
+
                         <xs:element name="godina">
                             <xs:simpleType>
                                 <xs:restriction base="xs:integer">
@@ -45,9 +47,7 @@
                 </xs:complexType>
             </xs:element>
 
-            <xs:element name="Cena" type="Cena">
-                  
-            </xs:element>
+            <xs:element name="Cena" type="Cena"></xs:element>
 
             
 
@@ -60,10 +60,10 @@
                 </xs:simpleType>
             </xs:element>
             
-            <xs:element name="Oznaka">
+            <xs:element name="Oznaka" minOccurs="0" maxOccurs="unbounded">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:minLength value="5"/>
+                        <xs:minLength value="3"/>
                         <xs:maxLength value="100"/>
                     </xs:restriction>
                 </xs:simpleType>
@@ -71,6 +71,22 @@
 
             <xs:element name="E-Posta" type="EPosta"></xs:element>
         </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Cat">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="tip">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="automobil"/>
+                            <xs:enumeration value="stan"/>
+                            <xs:enumeration value="alat"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
     </xs:complexType>
 
     <xs:complexType name="Cena">
@@ -82,50 +98,55 @@
         </xs:simpleContent>     
     </xs:complexType> 
     <xs:complexType name="Valuta">
-                <xs:simpleContent>
-                        <xs:extension base="xs:positiveInteger">
-                            <xs:attribute name="valuta"  use="optional" default="din">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:enumeration value="din"/>
-                                        <xs:enumeration value="usd"/>
-                                        <xs:enumeration value="eur"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:attribute>
-                        </xs:extension>
-                </xs:simpleContent> 
-            </xs:complexType>
-
-
-        <xs:complexType name="EPosta">
-            <xs:sequence>
-                <xs:element name="kontakt" type="kontakt" minOccurs="1" maxOccurs="unbounded">
-                </xs:element>
-            </xs:sequence>
-        </xs:complexType>
-
-        <xs:complexType name="kontakt" >
-            <xs:simpleContent>
-                <xs:restriction base="Vrsta">
-                    <xs:pattern value="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"/>
-                </xs:restriction>
-            </xs:simpleContent>
-
-        </xs:complexType>
-
-        <xs:complexType name="Vrsta">
-            <xs:simpleContent>
-                <xs:extension base="xs:string">
-                    <xs:attribute name="vrsta" use="required">
+        <xs:simpleContent>
+                <xs:extension base="xs:positiveInteger">
+                    <xs:attribute name="valuta"  use="optional" default="din">
                         <xs:simpleType>
                             <xs:restriction base="xs:string">
-                                <xs:enumeration value="privatni"/>
-                                <xs:enumeration value="sluzbeni"/>
+                                <xs:enumeration value="din"/>
+                                <xs:enumeration value="usd"/>
+                                <xs:enumeration value="eur"/>
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:attribute>
                 </xs:extension>
-            </xs:simpleContent>
-        </xs:complexType>
+        </xs:simpleContent> 
+    </xs:complexType>
+
+
+    <xs:complexType name="EPosta">
+        <xs:sequence>
+            <xs:element name="kontakt"  minOccurs="1" maxOccurs="unbounded">
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    
+
+    <xs:complexType name="Kontakt" >
+        <xs:simpleContent>
+            <xs:restriction base="Vrsta">
+                <xs:pattern value="[a-zA-Z]{1,20}[@][a-zA-Z]{4,8}(.com$)"/>
+            </xs:restriction>
+        </xs:simpleContent>
+
+    </xs:complexType>
+
+    <xs:complexType name="Vrsta">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="vrsta" use="required">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="privatni"/>
+                            <xs:enumeration value="sluzbeni"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+
+        
 </xs:schema>
