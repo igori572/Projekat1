@@ -15,5 +15,5 @@
 <!ELEMENT kontakt (#PCDATA)>
 
 <!ATTLIST Kategorija tip (automobil|stan|alat) #REQUIRED>
-<!ATTLIST Cena valuta (eur|din|usd) "din" #REQUIRED>
-<!ATTLIST kontakt (privatni|sluzbeni) #REQUIRED>
+<!ATTLIST Cena valuta (din|eur|usd) "din">
+<!ATTLIST kontakt vrsta (privatni|sluzbeni) #REQUIRED>
