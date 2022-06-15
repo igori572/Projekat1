@@ -1,6 +1,6 @@
 <Oglasi>
     <Oglas>
-       
+       <Kategorija tip="automobil">Mercedes S400</Kategorija>
         <DatumIsteka>
             <dan>22</dan>
             <mesec>5</mesec>
