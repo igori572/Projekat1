@@ -44,13 +44,16 @@ exports.obrisiOglas=(id)=>{
     snimiOglase(this.sviOglasi().filter(oglas=>oglas.id!=id));
 }
 
+
+
+
 exports.filtrirajOglase=(kategorija,cena,oznaka)=>{
     let oglasi=procitaj();
     if(kategorija)oglasi=oglasi.filter(o=>o.kategorija==kategorija);
     if(cena) oglasi=oglasi.filter(o=>o.cena==cena)
     if(oznaka) oglasi=oglasi.filter(o=>o.oznaka.toLowerCase().includes(oznaka.toLowerCase()));
 
-    return oglasi
+    return oglasi;
 
 }
 
