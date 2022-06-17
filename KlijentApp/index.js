@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 let procitajPogled=(naziv)=>{
-    return fs.readFileSync(path.join(`__dirname+"/view/"+naziv+".html"`),"utf-8");
+    return fs.readFileSync(path.join(__dirname+"/view/"+naziv+".html"),"utf-8");
 };
 
 app.get("/",(req,res)=>{
@@ -40,7 +40,7 @@ app.get("/svioglasi",(req,res)=>{
 });
 
 app.get("/detaljnije/:id",(req,res)=>{
-    axios.get(`http://localhost:3000//getoglasbyid/${req.params["id"]}`)
+    axios.get(`http://localhost:3000/getoglasbyid/${req.params["id"]}`)
     .then(response=>{
         let prikaz=""
         prikaz+=`<tr>
@@ -48,6 +48,7 @@ app.get("/detaljnije/:id",(req,res)=>{
         <td>${response.data.kategorija}</td>
         <td>${response.data.datum}</td>
         <td>${response.data.cena}</td>
+        <td>${response.data.tekst}</td>
         <td>${response.data.oznaka}</td>
         <td>${response.data.email}</td>
         <td><a href="/obrisi/${response.data.id}">Obrisi</a></td>
@@ -64,7 +65,7 @@ app.get("/obrisi/:id",(req,res)=>{
     res.redirect("/svioglasi");
 })
 
-app.get("/dodajknjigu",(req,res)=>{
+app.get("/dodajoglas",(req,res)=>{
     res.send(procitajPogled("dodavanje"));
 });
 app.post("/snimioglas",(req,res)=>{
@@ -72,6 +73,7 @@ app.post("/snimioglas",(req,res)=>{
         kategorija:req.body.kategorija,
         datum:req.body.datum,
         cena:req.body.cena,
+        tekst:req.body.tekst,
         oznaka:req.body.oznaka,
         email:req.body.email
     })
@@ -87,6 +89,7 @@ app.post("/filtrirajkategoriju",(req,res)=>{
             <td>${element.kategorija}</td>
             <td>${element.datum}</td>
             <td>${element.cena}</td>
+            <td>${element.tekst}</td>
             <td>${element.oznaka}</td>
             <td>${element.email}</td>
             <td><a href="/obrisi/${element.id}">Obrisi</a></td>

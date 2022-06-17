@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="/svioglasi">Pogledaj sve oglase</a>
+        <a href="/dodajoglas">Dodaj oglas</a>
+    </nav>
+    <form action="/snimioglas" method="POST">
+        <input type="text" name="kategorija">
+        <br>
+        <input type="text" name="datum">
+        <br>
+        <input type="text" name="cena">
+        <br>
+        <input type="text" name="tekst">
+        <br>
+        <input type="text" name="oznaka">
+        <br>
+        <input type="email" name="email">
+        <button type="submit">Dodaj oglas</button>
+    </form>
+</body>
+</html>

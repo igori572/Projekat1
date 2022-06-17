@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="/svioglasi">Pogledaj sve oglase</a>
+        <a href="/dodajoglas">Dodaj oglas</a>
+    </nav>
+    <div>
+        <form action="filtrirajkategoriju" method="POST">
+            <label for="">Kategorija</label><input type="text" name="kategorija">
+
+        </form>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Naslov</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    #{data}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
