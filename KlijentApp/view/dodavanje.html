@@ -12,7 +12,11 @@
         <a href="/dodajoglas">Dodaj oglas</a>
     </nav>
     <form action="/snimioglas" method="POST">
-        <input type="text" name="kategorija">
+        <select name="kategorija" id="kategorija">
+            <option value="Automobil">Automobil</option>
+            <option value="Stan">Stan</option>
+            <option value="Alat">Alat</option>
+        </select>
         <br>
         <input type="text" name="datum">
         <br>
@@ -23,6 +27,7 @@
         <input type="text" name="oznaka">
         <br>
         <input type="email" name="email">
+        <br>
         <button type="submit">Dodaj oglas</button>
     </form>
 </body>
