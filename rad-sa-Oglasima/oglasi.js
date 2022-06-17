@@ -56,13 +56,25 @@ exports.izmeniOglas=(id,oglas)=>{
 }
 
 
+exports.filtrirajOglaseKategorija=(kategorija)=>{
+    return this.sviOglasi().filter(oglas=>oglas.kategorija==kategorija);
+}
+exports.filtrirajOglaseOznaka=(oznaka)=>{
+    return this.sviOglasi().filter(oglas=>oglas.oznaka.toLowerCase().includes(oznaka.toLowerCase()))
+}
+exports.filtrirajOglaseCena=(cena)=>{
+    return this.sviOglasi().filter(oglas=>oglas.cena<=cena)
+}
+
 exports.filtrirajOglase=(kategorija,cena,oznaka)=>{
-    let oglasi=procitaj();
-    if(kategorija)oglasi=oglasi.filter(o=>o.kategorija==kategorija);
-    if(cena) oglasi=oglasi.filter(o=>o.cena<=cena)
-    if(oznaka) oglasi=oglasi.filter(o=>o.oznaka.toLowerCase().includes(oznaka.toLowerCase()));
+    let oglasi = procitaj();
+  if (kategorija) oglasi = oglasi.filter(o => o.kategorija == kategorija);
+  if (cena) oglasi = oglasi.filter(o => o.cena <= cena);
+  if (oznaka)
+    oglasi = oglasi.filter(o=>
+      o.oznaka.toLowerCase().includes(oznaka.toLowerCase())
+    );
 
-    return oglasi;
-
+  return oglasi;
 }
 
