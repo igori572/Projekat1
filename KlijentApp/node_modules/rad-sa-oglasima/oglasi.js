@@ -45,7 +45,7 @@ exports.izmeniOglas=()=>{
 
 
 exports.filtrirajOglaseKategorija=(kategorija)=>{
-    return this.sviOglasi().filter(oglas=>oglas.kategorija.toLoweCase().includes(kategorija.toLoweCase()));
+    return this.sviOglasi().filter(oglas=>oglas.kategorija==kategorija);
 }
 
 

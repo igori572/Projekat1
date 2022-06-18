@@ -1,5 +1,4 @@
 const axios = require("axios");
-const { response } = require("express");
 const express=require("express");
 const fs=require("fs");
 const app=express();
@@ -44,7 +43,6 @@ app.get("/detaljnije/:id",(req,res)=>{
     axios.get(`http://localhost:3000/getoglasbyid/${req.params["id"]}`)
     .then(response=>{
         let prikaz=""
-        response.data.forEach(element=>{
             prikaz+=`<tr>
             <td>${response.data.id}</td>
             <td>${response.data.kategorija}</td>
@@ -53,10 +51,9 @@ app.get("/detaljnije/:id",(req,res)=>{
             <td>${response.data.tekst}</td>
             <td>${response.data.oznaka}</td>
             <td>${response.data.email}</td>
-            <td><a href="/izmeni/${element.id}">Izmeni</a></td>
+            <td><a href="/izmeni/${response.data.id}">Izmeni</a></td>
             <td><a href="/obrisi/${response.data.id}">Obrisi</a></td>
             </tr>`;
-        })
         
         res.send(procitajPogled("svioglasi").replace("#{data}",prikaz))
     })
