@@ -13,15 +13,22 @@
     </nav>
     <div>
         <form action="filtrirajkategoriju" method="POST">
-            <label for="">Kategorija</label><input type="text" name="kategorija">
-            <button type="submit">Filtriraj kategoriju</button>
+            <label for="">Kategorija</label>
+            <select name="kategorija" id="kategorija">
+                <option value="Automobil">Automobil</option>
+                <option value="Stan">Stan</option>
+                <option value="Alat">Alat</option>
+            </select>
+            <button type="submit">Filtriraj</button>
         </form>
         <div>
             <table>
                 <thead>
                     <tr>
                         <td>ID</td>
-                        <td>Naslov</td>
+                        <td>Kategorija</td>
+                        <td>Tekst oglasa</td>
+                        <td>Cena</td>
                     </tr>
                 </thead>
                 <tbody>

@@ -29,6 +29,7 @@ app.get("/svioglasi",(req,res)=>{
             <td>${element.tekst}</td>
             <td>${element.cena}</td>
             <td><a href="/detaljnije/${element.id}">Detaljnije</a></td>
+            <td><a href="/izmeni/${element.id}">Izmeni</a></td>
             <td><a href="/obrisi/${element.id}">Obrisi</a></td>
             </tr>`
         });
@@ -43,16 +44,20 @@ app.get("/detaljnije/:id",(req,res)=>{
     axios.get(`http://localhost:3000/getoglasbyid/${req.params["id"]}`)
     .then(response=>{
         let prikaz=""
-        prikaz+=`<tr>
-        <td>${response.data.id}</td>
-        <td>${response.data.kategorija}</td>
-        <td>${response.data.datum}</td>
-        <td>${response.data.cena}</td>
-        <td>${response.data.tekst}</td>
-        <td>${response.data.oznaka}</td>
-        <td>${response.data.email}</td>
-        <td><a href="/obrisi/${response.data.id}">Obrisi</a></td>
-        </tr>`;
+        response.data.forEach(element=>{
+            prikaz+=`<tr>
+            <td>${response.data.id}</td>
+            <td>${response.data.kategorija}</td>
+            <td>${response.data.datum}</td>
+            <td>${response.data.cena}</td>
+            <td>${response.data.tekst}</td>
+            <td>${response.data.oznaka}</td>
+            <td>${response.data.email}</td>
+            <td><a href="/izmeni/${element.id}">Izmeni</a></td>
+            <td><a href="/obrisi/${response.data.id}">Obrisi</a></td>
+            </tr>`;
+        })
+        
         res.send(procitajPogled("svioglasi").replace("#{data}",prikaz))
     })
     .catch(error=>{
@@ -83,6 +88,7 @@ app.post("/snimioglas",(req,res)=>{
 app.post("/filtrirajkategoriju",(req,res)=>{
     axios.get(`http://localhost:3000/getoglasbykategorija?kategorija=${req.body.kategorija}`)
     .then(response=>{
+        let prikaz=""
         response.data.forEach(element=>{
             prikaz+=`<tr>
             <td>${element.id}</td>
@@ -92,6 +98,7 @@ app.post("/filtrirajkategoriju",(req,res)=>{
             <td>${element.tekst}</td>
             <td>${element.oznaka}</td>
             <td>${element.email}</td>
+            <td><a href="/izmeni/${element.id}">Izmeni</a></td>
             <td><a href="/obrisi/${element.id}">Obrisi</a></td>
             </tr>`
         });
