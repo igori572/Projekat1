@@ -30,6 +30,11 @@ app.put('/izmenioglas/:id',(request,response)=>{
     response.end('Izmenjen oglas')
 })
 
+app.put('/izmeniOglas',(request,response)=>{
+    app.dodajOglas(request.body)
+    response.end('Izmenjen oglas')
+})
+
 app.get('/getoglasbykategorija',(request,response)=>{
     response.send(oglasiServer.filtrirajOglaseKategorija(request.query["kategorija"]))
 });

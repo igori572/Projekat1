@@ -13,25 +13,68 @@
     </nav>
     <form action="/snimioglas" method="POST">
         <div>
+            <label for="kategorija">Kategorija oglasa: </label>
             <select name="kategorija" id="kategorija">
-            <option value="Automobil">Automobil</option>
-            <option value="Stan">Stan</option>
-            <option value="Alat">Alat</option>
-        </select>
+                <option value="Automobil">Automobil</option>
+                <option value="Stan">Stan</option>
+                <option value="Alat">Alat</option>
+            </select>
         </div>
-        
         <br>
-        <input type="text" name="datum">
+
+        <div>
+            <label for="datum">Datum isteka: </label>
+            <input type="date" name="datum">
+        </div>
         <br>
-        <input type="text" name="cena">
+
+        <div>
+            <label for="cena">Cena</label>
+            <input type="text" name="cena">
+            <label for="valuta">Valuta</label>
+            <select name="valuta" id="valuta">
+                <option value="EUR">EUR</option>
+                <option value="DIN">DIN</option>
+                <option value="USD">USD</option>
+            </select>
+        </div>
         <br>
-        <input type="text" name="tekst">
+
+        <div>
+            <label for="tekst">Tekst oglasa: </label>
+            <input type="text" name="tekst">
+        </div>     
         <br>
-        <input type="text" name="oznaka">
+        <button onclick="dodajOznaku()" type="button"> Dodaj oznaku</button>
+        <div id="oznake" >
+            <label for="oznake">Oznake:</label>
+            <br>
+            <input type="text" name="oznake">
+        </div>
         <br>
-        <input type="email" name="email">
+        <button onclick="dodajEmail()" type="button">Dodaj E-mail</button>
+        <div id="emails">
+            <label for="mail">E-mail: </label>
+            <br>
+            <input type="email" name="email">
+            <select name="tip">
+                <option value="Privatni">Privatni</option>
+                <option value="Sluzbeni">Sluzbeni</option>
+            </select>
+            
+        </div>
         <br>
         <button type="submit">Dodaj oglas</button>
     </form>
+
+    <script>
+        function dodajOznaku(){
+            document.getElementById('oznake').innerHTML+='<br><input type="text" name="oznake">'
+        }
+        function dodajEmail(){
+            document.getElementById('emails').innerHTML+='<br><input type="email" name="email"> '+
+           '<select name="tip"><option value="Privatni">Privatni</option> <option value="Sluzbeni">Sluzbeni</option></select>'        
+        }
+    </script>
 </body>
 </html>
