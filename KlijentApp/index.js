@@ -215,18 +215,14 @@ app.post("/snimioglas",(req,res)=>{
 app.post("/filtrirajkategoriju",(req,res)=>{
     axios.get(`http://localhost:3000/getoglasbykategorija?kategorija=${req.body.kategorija}`)
     .then(response=>{
-        let mejlic=''
-        response.data.email.forEach(m=>{mejlic+=`<td>${m.adresa}</td><td>${m.tip}</td>`})
         let prikaz=""
         response.data.forEach(element=>{
             prikaz+=`<tr>
             <td>${element.id}</td>
             <td>${element.kategorija}</td>
-            <td>${element.datum}</td>
-            <td>${element.cena}${element.valuta}</td>
             <td>${element.tekst}</td>
-            <td>${element.oznaka}</td>
-            <td>${mejlic}</td>
+            <td>${element.cena}${element.valuta}</td>
+            <td><a href="/detaljnije/${element.id}">Detaljnije</a></td>
             <td><a href="/izmeni/${element.id}">Izmeni</a></td>
             <td><a href="/obrisi/${element.id}">Obrisi</a></td>
             </tr>`

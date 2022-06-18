@@ -1,1 +1,1 @@
-[{"id":1,"kategorija":"Stan","datum":"2022-06-25","cena":100000,"valuta":"EUR","tekst":"Dobra lokacija","oznaka":["Vracar","120m2"],"email":[{"adresa":"stan@gmail.com","tip":"Privatni"},{"adresa":"stan2@gmail.com","tip":"Sluzbeni"}]}]
+[{"id":1,"kategorija":"Automobil","datum":"2022-06-25","cena":12000,"valuta":"EUR","tekst":"Dobar auto","oznaka":["bmw","120d"],"email":[{"adresa":"bmw@gmail.com","tip":"Privatni"},{"adresa":"bmw2@gmail.com","tip":"Privatni"}]}]
