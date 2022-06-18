@@ -4,13 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        a{
+            text-decoration: none;
+            color:white;
+        }
+        table{
+            
+            background-color:cadetblue;
+            width: 100%;
+        }
+        table{
+            border: 2px;
+            border-collapse: collapse;
+            border-style: solid;
+        }
+        nav{
+            background-color: cadetblue;
+        }
+        a:hover{
+            color: green;
+        }
+    </style>
+    <title>Dodaj oglas</title>
 </head>
 <body>
     <nav>
         <a href="/svioglasi">Pogledaj sve oglase</a>
         <a href="/dodajoglas">Dodaj oglas</a>
     </nav>
+    <h1>Dodaj oglas</h1>
     <form action="/snimioglas" method="POST">
         <div>
             <label for="kategorija">Kategorija oglasa: </label>
