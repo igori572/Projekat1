@@ -40,7 +40,7 @@ app.get("/svioglasi",(req,res)=>{
     });
 });
 
-app.post('/izmenioglas',(req,res)=>{
+app.post('/izmeni',(req,res)=>{
     let mails=[]
     let oznake=[]
 
@@ -66,20 +66,20 @@ app.post('/izmenioglas',(req,res)=>{
         oznake.push(req.body.oznake)
     }
 
-    axios.put("http://localhost:3000/izmeniOglas",{
-        id:req.body.id,
+    axios.put("http://localhost:3000/izmeni",{
+        id:parseInt(req.body.id),
         kategorija:req.body.kategorija,
         datum:req.body.datum,
-        cena:req.body.cena,
+        cena:parseInt(req.body.cena),
         valuta:req.body.valuta,
         tekst:req.body.tekst,
         oznaka:oznake,
         email:mails
     })
-    response.redirect('/svioglasi')
+    res.redirect('/svioglasi')
 })
 
-app.get("/izmenioglas/:id",(req,res)=>{
+app.get("/izmeni/:id",(req,res)=>{
     axios.get(`http://localhost:3000/getoglasbyid/${req.params["id"]}`)
     .then(response=>{
         let oznakeHtml=''
@@ -133,9 +133,8 @@ app.get("/izmenioglas/:id",(req,res)=>{
             ${mejlic}
         </div>
         <br>
-        <button type="submit">Dodaj oglas</button>
         `
-        response.send(procitajPogled('izmeni').replace('#{data}',prikaz))
+        res.send(procitajPogled('izmeni').replace('#{data}',prikaz))
     }).catch(error=>{
         console.log(error);
     });
@@ -216,6 +215,8 @@ app.post("/snimioglas",(req,res)=>{
 app.post("/filtrirajkategoriju",(req,res)=>{
     axios.get(`http://localhost:3000/getoglasbykategorija?kategorija=${req.body.kategorija}`)
     .then(response=>{
+        let mejlic=''
+        response.data.email.forEach(m=>{mejlic+=`<td>${m.adresa}</td><td>${m.tip}</td>`})
         let prikaz=""
         response.data.forEach(element=>{
             prikaz+=`<tr>
@@ -225,7 +226,7 @@ app.post("/filtrirajkategoriju",(req,res)=>{
             <td>${element.cena}${element.valuta}</td>
             <td>${element.tekst}</td>
             <td>${element.oznaka}</td>
-            <td>${element.email}</td>
+            <td>${mejlic}</td>
             <td><a href="/izmeni/${element.id}">Izmeni</a></td>
             <td><a href="/obrisi/${element.id}">Obrisi</a></td>
             </tr>`

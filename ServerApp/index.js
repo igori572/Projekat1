@@ -25,13 +25,13 @@ app.delete('/obrisioglas/:id',(request,response)=>{
     response.end("Obrisan oglas")
 });
 
-app.put('/izmenioglas/:id',(request,response)=>{
-    response.send(oglasiServer.izmeniOglas(request.params["id"],request.body));
+app.put('/izmeni/:id',(request,response)=>{
+    response.send(oglasiServer.promeniOglas(request.params["id"],request.body));
     response.end('Izmenjen oglas')
 })
 
-app.put('/izmeniOglas',(request,response)=>{
-    app.dodajOglas(request.body)
+app.put('/izmeni',(request,response)=>{
+    oglasiServer.promeniOglas(request.body)
     response.end('Izmenjen oglas')
 })
 

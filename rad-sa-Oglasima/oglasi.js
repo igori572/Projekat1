@@ -37,9 +37,10 @@ exports.obrisiOglas=(id)=>{
     snimiOglase(this.sviOglasi().filter(oglas=>oglas.id!=id));
 }
 
-exports.izmeniOglas=()=>{
-    
-    this.oglasi[this.oglasi.findIndex(o=>o.id==oglas.id)]=oglas
+exports.promeniOglas=(oglas)=>{
+    let oglasi=this.sviOglasi();
+    oglasi[oglasi.findIndex(o => o.id == oglas.id)]=oglas
+    //console.log(oglasi.findIndex(o => o.id == oglas.id))
     snimiOglase(oglasi);
 }
 
